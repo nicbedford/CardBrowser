@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!--General Configuration-->
+  <?define Arch="x86"?>
+  <?define ProductName="EMV Card Browser"?>
+  <?define Author="Nic Bedford"?>
+  <?define VerMajor="0"?>
+  <?define VerMinor="0"?>
+  <?define VerBuild="1"?>
+  <!-- Use SVN version for revision -->
+  <?define VerRev="81"?>
+  <?define ProductVersion="$(var.VerMajor).$(var.VerMinor).$(var.VerBuild).$(var.VerRev)"?>
+  
+  <!--Main Definitions-->
+  <?if $(var.Arch)="x64"?>
+  <?define CpuId="2"?>
+  <?define ProgramFolder="ProgramFiles64Folder"?>
+  <?define VerPostStr=" (64 bit)"?>
+  <?define Is64="yes"?>
+  <?else?>
+  <?define CpuId="1"?>
+  <?define ProgramFolder="ProgramFilesFolder"?>
+  <?define VerPostStr=""?>
+  <?define Is64="no"?>
+  <?endif?>
+
+  <!-- GUIDS -->
+  <!-- We will always do a major upgrade -->
+  <?define ProductCode="*"?>
+  <!-- Do NOT change this or you will break upgrades -->
+  <?define UpgradeCode="57B1A303-FE73-46EE-B438-4FBD25A63E6A"?>
+</Include>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Include config defines -->
+<?include Config.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="$(var.ProductCode)"
+           Name="$(var.ProductName)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.Author)"
+           UpgradeCode="$(var.UpgradeCode)">
+    
+    <Package Description="$(var.ProductName)$(var.VerPostStr)"
+             Comments="$(var.ProductName)$(var.VerPostStr)"
+             Manufacturer="$(var.Author)"
+             InstallerVersion="200"
+             InstallPrivileges="elevated"
+             Compressed="yes"
+             Platform="$(var.Platform)"/>
+
+    <WixVariable Id="WixUICostingPopupOptOut" Value="1" />
+    
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion Property="OLDAPPFOUND" IncludeMinimum="yes" Minimum="0.0.0.0" IncludeMaximum="no" Maximum="$(var.ProductVersion)"/>
+      <UpgradeVersion Property="NEWAPPFOUND" IncludeMinimum="no" Minimum="$(var.ProductVersion)"  OnlyDetect="yes"/>
+    </Upgrade>
+    
+    <Media Id="1" Cabinet="CardBrowser.cab" EmbedCab="yes" CompressionLevel="high"/>
+    
+    <Condition Message="[ProductName] requires Windows Vista or higher.">VersionNT >= 600</Condition>
+
+    <PropertyRef Id="NETFRAMEWORK35" />
+    <Condition Message="[ProductName] requires Microsoft .NET Framework 3.5 to be installed.">
+      Installed OR NETFRAMEWORK35
+    </Condition>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="ProgramFolder">
+        <Directory Id="INSTALLDIR" Name="EMV Card Browser">
+          <Component Id="CardBrowser.exe" Guid="1E1C7A23-83F6-4B10-A4F3-0C32FCB0C6D2">
+            <File Id="CardBrowser.exe" Name="CardBrowser.exe" Source="..\Deploy\CardBrowser.exe" Vital="yes" KeyPath="yes" DiskId="1">
+              <Shortcut Id="CardBrowserShortcut" Directory="CardBrowserProgramMenu" Name="EMV Card Browser" Icon="CardBrowser.ico" Advertise="yes"/>
+            </File>
+            <RemoveFolder Id="INSTALLDIR" On="uninstall" />
+            <RemoveFolder Id="RemFolder" Directory="CardBrowserProgramMenu" On="uninstall"/>
+          </Component>
+
+          <!-- This assembly has been merged using {smartassembly} protection system -->
+          <!--
+          <Component Id="PCSC.dll" Guid="E8E194BB-A540-4FDD-BF4F-7285F7F32DC0">
+            <File Id="PCSC.dll" Name="PCSC.dll" Source="..\PCSC\bin\release\PCSC.dll" Vital="yes" KeyPath="yes" DiskId="1"/>
+          </Component>
+          -->
+          
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="CardBrowserProgramMenu" Name="EMV Card Browser"/>
+      </Directory>
+      
+    </Directory>
+
+    <!-- Define an icon table -->
+    <Icon Id="CardBrowser.ico" SourceFile="..\CardBrowser\emv.ico"/>
+
+    <!-- Set custom value to appear in Add/Remove Programs dialog -->
+    <Property Id="ARPPRODUCTICON" Value="CardBrowser.ico"/>
+    <Property Id="ARPHELPLINK" Value="http://nicbedford.co.uk/software/emvcardbrowser/"/>
+
+    <Feature Id="DefaultFeature" Level="1">
+      <ComponentRef Id="CardBrowser.exe" />
+      <!--<ComponentRef Id="PCSC.dll"/>-->
+    </Feature>
+
+    <!-- Customise the user interface -->
+    <WixVariable Id="WixUIBannerBmp" Value="bannrbmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="dlgbmp.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+
+    <!-- Default to ticked -->
+    <Property Id="LAUNCHAPPONEXIT" Value="1"/>
+
+    <!-- We are using the WixUI_InstallDir dialog set -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR"/>
+    <UIRef Id="MyWixUI_InstallDir" />
+
+    <!-- This is the code that actually launchs the app -->
+    <Property Id="WixShellExecTarget" Value="[#CardBrowser.exe]"/>
+    
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Execute="immediate" Return="check" Impersonate="yes"/>
+    <UI>
+      <Publish Dialog="MyExitDialog" Control="Finish" Order="1" Event="DoAction" Value="LaunchApplication">
+        LAUNCHAPPONEXIT AND NOT (WixUI_InstallMode = "Remove")
+      </Publish>
+    </UI>
+
+    <!-- This will ensure that the LaunchConditions are executed only after searching -->
+    <InstallUISequence>
+      <LaunchConditions After="AppSearch"/>
+    </InstallUISequence>
+    
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallFinalize"/>
+      <LaunchConditions After="AppSearch"/>
+    </InstallExecuteSequence>
+
+  </Product>
+</Wix>

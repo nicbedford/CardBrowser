@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardBrowser", "CardBrowser\CardBrowser.csproj", "{3C9050C8-5A56-481F-AB20-72625507EA2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCSC", "PCSC\PCSC.csproj", "{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "InstallCardBrowser", "InstallCardBrowser\InstallCardBrowser.wixproj", "{3037CD96-40B1-42DA-888C-967EB491DE83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C9050C8-5A56-481F-AB20-72625507EA2E} = {3C9050C8-5A56-481F-AB20-72625507EA2E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://nic-pc:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = CardBrowser\\CardBrowser.csproj
+		SccProjectName0 = CardBrowser
+		SccLocalPath0 = CardBrowser
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = InstallCardBrowser\\InstallCardBrowser.wixproj
+		SccProjectName2 = InstallCardBrowser
+		SccLocalPath2 = InstallCardBrowser
+		SccProjectUniqueName3 = PCSC\\PCSC.csproj
+		SccProjectName3 = PCSC
+		SccLocalPath3 = PCSC
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3C9050C8-5A56-481F-AB20-72625507EA2E}.Release|x86.ActiveCfg = Release|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{28B8C74F-7F09-44F2-9590-B2DDAD1C1887}.Release|x86.ActiveCfg = Release|Any CPU
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Debug|x86.ActiveCfg = Debug|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Debug|x86.Build.0 = Debug|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Release|Any CPU.ActiveCfg = Release|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Release|x86.ActiveCfg = Release|x86
+		{3037CD96-40B1-42DA-888C-967EB491DE83}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
