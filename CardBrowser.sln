@@ -11,21 +11,6 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "InstallCardBrowser", "Insta
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://nic-pc:8080/tfs/defaultcollection
-		SccProjectUniqueName0 = CardBrowser\\CardBrowser.csproj
-		SccProjectName0 = CardBrowser
-		SccLocalPath0 = CardBrowser
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = InstallCardBrowser\\InstallCardBrowser.wixproj
-		SccProjectName2 = InstallCardBrowser
-		SccLocalPath2 = InstallCardBrowser
-		SccProjectUniqueName3 = PCSC\\PCSC.csproj
-		SccProjectName3 = PCSC
-		SccLocalPath3 = PCSC
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
