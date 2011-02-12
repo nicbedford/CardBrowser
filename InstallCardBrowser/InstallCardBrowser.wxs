@@ -39,19 +39,16 @@
       <Directory Id="ProgramFilesFolder" Name="ProgramFolder">
         <Directory Id="INSTALLDIR" Name="EMV Card Browser">
           <Component Id="CardBrowser.exe" Guid="1E1C7A23-83F6-4B10-A4F3-0C32FCB0C6D2">
-            <File Id="CardBrowser.exe" Name="CardBrowser.exe" Source="..\Deploy\CardBrowser.exe" Vital="yes" KeyPath="yes" DiskId="1">
+            <File Id="CardBrowser.exe" Name="CardBrowser.exe" Source="..\CardBrowser\bin\release\CardBrowser.dll" Vital="yes" KeyPath="yes" DiskId="1">
               <Shortcut Id="CardBrowserShortcut" Directory="CardBrowserProgramMenu" Name="EMV Card Browser" Icon="CardBrowser.ico" Advertise="yes"/>
             </File>
             <RemoveFolder Id="INSTALLDIR" On="uninstall" />
             <RemoveFolder Id="RemFolder" Directory="CardBrowserProgramMenu" On="uninstall"/>
           </Component>
 
-          <!-- This assembly has been merged using {smartassembly} protection system -->
-          <!--
           <Component Id="PCSC.dll" Guid="E8E194BB-A540-4FDD-BF4F-7285F7F32DC0">
             <File Id="PCSC.dll" Name="PCSC.dll" Source="..\PCSC\bin\release\PCSC.dll" Vital="yes" KeyPath="yes" DiskId="1"/>
           </Component>
-          -->
           
         </Directory>
       </Directory>
